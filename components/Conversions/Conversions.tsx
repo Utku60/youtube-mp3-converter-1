@@ -49,7 +49,7 @@ export default function Conversions({ conversions }: { conversions: conversionPr
                         <p>Duración: {formatDuration(conversion.duration)}</p>
                       </div>
                     </header>
-                    {conversion.link.length <= 0 ? (
+                    {conversion.link && conversion.link.length <= 0 ? (
                       <Oval
                         height={40}
                         width={40}
@@ -66,7 +66,7 @@ export default function Conversions({ conversions }: { conversions: conversionPr
                       <a
                         className="w-full max-w-[190px] px-4 h-[50px] box-border rounded-lg bg-[#FF5D73] font-bold flex items-center gap-4 conversion"
                         href={conversion.link}
-                        download=""
+                        download={conversion.title ? `${conversion.title}.mp3` : 'file.mp3'}
                       >
                         Descargar MP3
                         <Image
